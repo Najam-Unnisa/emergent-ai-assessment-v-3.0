@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --hf-primary: #534AB7;
+  --hf-primary-hover: #423A93;
+  --hf-primary-active: #322D70;
+  --hf-cand-bg: #F9F9FB;
+  --hf-cand-surface: #FFFFFF;
+  --hf-cand-text: #1A1A24;
+  --hf-cand-text-muted: #4A4A5A;
+  --hf-cand-border: #E5E5EB;
+  --hf-admin-bg: #0D0D12;
+  --hf-admin-surface: #16161E;
+  --hf-admin-text: #F8F8F8;
+  --hf-admin-text-muted: #8F8F9D;
+  --hf-admin-border: #2D2D3B;
+  --hf-warning: #FF9500;
+  --hf-critical: #FF3B30;
+  --hf-success: #34C759;
+}
+
+body {
+  margin: 0;
+  font-family: 'IBM Plex Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--hf-cand-bg);
+  color: var(--hf-cand-text);
+}
+
+.font-display { font-family: 'Work Sans', sans-serif; letter-spacing: -0.02em; }
+.font-mono-stat { font-family: 'JetBrains Mono', monospace; }
+
+/* Tailwind shadcn theme tokens */
+@layer base {
+  :root {
+    --background: 240 14% 98%;
+    --foreground: 240 14% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 14% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 14% 12%;
+    --primary: 247 43% 51%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 14% 96%;
+    --secondary-foreground: 240 14% 12%;
+    --muted: 240 14% 96%;
+    --muted-foreground: 240 6% 35%;
+    --accent: 247 43% 96%;
+    --accent-foreground: 247 43% 25%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 14% 91%;
+    --input: 240 14% 91%;
+    --ring: 247 43% 51%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 240 14% 6%;
+    --foreground: 0 0% 97%;
+    --card: 240 14% 9%;
+    --card-foreground: 0 0% 97%;
+    --popover: 240 14% 9%;
+    --popover-foreground: 0 0% 97%;
+    --primary: 247 43% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 14% 14%;
+    --secondary-foreground: 0 0% 97%;
+    --muted: 240 14% 14%;
+    --muted-foreground: 240 7% 60%;
+    --accent: 240 14% 14%;
+    --accent-foreground: 0 0% 97%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 14% 18%;
+    --input: 240 14% 18%;
+    --ring: 247 43% 60%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+}
+
+/* Pulse animation for critical timer */
+@keyframes hf-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.85; }
+}
+.hf-pulse { animation: hf-pulse 0.7s ease-in-out infinite; }
+
+/* Typing indicator */
+@keyframes hf-bounce {
+  0%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-6px); }
+}
+.hf-dot { animation: hf-bounce 1.2s infinite; }
+.hf-dot:nth-child(2) { animation-delay: 0.15s; }
+.hf-dot:nth-child(3) { animation-delay: 0.3s; }
+
+/* Audio bars visualizer */
+@keyframes hf-bar {
+  0%, 100% { transform: scaleY(0.4); }
+  50% { transform: scaleY(1.1); }
+}
+.hf-bar { animation: hf-bar 0.8s ease-in-out infinite; transform-origin: bottom; }
+.hf-bar:nth-child(2) { animation-delay: 0.1s; }
+.hf-bar:nth-child(3) { animation-delay: 0.2s; }
+.hf-bar:nth-child(4) { animation-delay: 0.3s; }
+
+/* Non-copyable */
+.hf-noselect {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
+/* Admin dark surface */
+.admin-surface {
+  background: var(--hf-admin-surface);
+  border: 1px solid var(--hf-admin-border);
+}
+.admin-surface:hover {
+  border-color: rgba(83, 74, 183, 0.5);
+}
+
+/* Glass header for candidate */
+.cand-glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Custom scrollbar */
+.hf-scroll::-webkit-scrollbar { width: 8px; height: 8px; }
+.hf-scroll::-webkit-scrollbar-track { background: transparent; }
+.hf-scroll::-webkit-scrollbar-thumb { background: rgba(83, 74, 183, 0.3); border-radius: 4px; }
+.hf-scroll::-webkit-scrollbar-thumb:hover { background: rgba(83, 74, 183, 0.5); }

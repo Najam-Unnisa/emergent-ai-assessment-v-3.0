@@ -1,0 +1,126 @@
+{
+  "project_name": "HireFast",
+  "theme_archetype": {
+    "name": "Swiss & High-Contrast (Adapted for #534AB7)",
+    "candidate_portal": "Light Theme (Professional, Clean, Trustworthy)",
+    "admin_portal": "Dark Theme (Technical, Data-dense, Command Center)",
+    "primary_color": "#534AB7"
+  },
+  "typography": {
+    "headings": {
+      "family": "Work Sans, sans-serif",
+      "weights": ["400", "600", "700"],
+      "usage": "Use for all H1-H4. DO NOT use Inter. Use tracking-tight for H1/H2."
+    },
+    "body": {
+      "family": "IBM Plex Sans, sans-serif",
+      "weights": ["400", "500"],
+      "usage": "Use for all body text, descriptions, and UI labels."
+    },
+    "mono": {
+      "family": "JetBrains Mono, monospace",
+      "weights": ["400", "500"],
+      "usage": "Use for typing stats (WPM, Accuracy), timer countdown, and code/data blocks."
+    }
+  },
+  "colors": {
+    "brand": {
+      "primary": "#534AB7",
+      "primary_hover": "#423A93",
+      "primary_active": "#322D70"
+    },
+    "candidate_light": {
+      "background": "#F9F9FB",
+      "surface": "#FFFFFF",
+      "surface_glass": "rgba(255, 255, 255, 0.7)",
+      "text_primary": "#1A1A24",
+      "text_secondary": "#4A4A5A",
+      "border": "#E5E5EB"
+    },
+    "admin_dark": {
+      "background": "#0D0D12",
+      "surface": "#16161E",
+      "surface_glass": "rgba(22, 22, 30, 0.7)",
+      "text_primary": "#F8F8F8",
+      "text_secondary": "#8F8F9D",
+      "border": "#2D2D3B"
+    },
+    "semantic": {
+      "timer_normal": "#534AB7",
+      "timer_warning": "#FF9500",
+      "timer_critical": "#FF3B30",
+      "success": "#34C759",
+      "error": "#FF3B30",
+      "typing_correct": "#34C759",
+      "typing_error": "#FF3B30"
+    }
+  },
+  "layout_spacing": {
+    "spacing_scale": "Use generous spacing. p-6, p-8, p-12 for containers.",
+    "candidate_grid": "Mode A (Tetris Grid) for Welcome screen section previews. Wide gaps (gap-8).",
+    "admin_grid": "Mode B (Control Room Grid) for Admin Dashboard. Dense gaps (gap-6).",
+    "borders_radius": "Subtle roundness. max 8px (rounded-lg) for both portals.",
+    "surfaces": {
+      "candidate_header": "Glassmorphism: bg-white/70, backdrop-blur-xl, border-b border-white/20, shadow-sm.",
+      "admin_cards": "Flat solid: bg-[#16161E], 1px border border-[#2D2D3B], no default shadow. Hover: translate-y-[-2px] with glow."
+    }
+  },
+  "motion_interactions": {
+    "page_transitions": "Smooth fade between questions using framer-motion (opacity 0 to 1, y 10 to 0).",
+    "timer_animation": "At 10s: #FF9500. At 5 seconds: text and stroke change to red (#FF3B30) and pulse using CSS keyframes.",
+    "hover_states": "Buttons and interactive cards must lift slightly and change border/bg color.",
+    "typing_indicator": "3 dots bouncing animation for AI chat typing state."
+  },
+  "components": {
+    "libraries": [
+      "lucide-react",
+      "framer-motion",
+      "recharts"
+    ],
+    "shadcn_overrides": [
+      "Forms: Heavily customize inputs to use #534AB7 for focus rings.",
+      "Cards: Remove default heavy shadows, rely on 1px borders.",
+      "Progress: Use #534AB7 for the indicator."
+    ],
+    "custom_elements": [
+      "Circular Countdown Timer: SVG based circle with stroke-dashoffset animation.",
+      "Live Transcript Box: Scrollable div with JetBrains Mono, auto-scroll to bottom.",
+      "AI Chat: Grey bubble left, #534AB7 bubble right.",
+      "Audio Visualizer: Small animated bars for voice recording active state."
+    ]
+  },
+  "testing_accessibility": {
+    "attributes": "All interactive elements MUST include data-testid (e.g. data-testid='start-test-button').",
+    "contrast": "Ensure white text on #534AB7 meets 4.5:1 ratio."
+  },
+  "media": {
+    "image_urls": {
+      "candidate_hero_bg": {
+        "url": "https://static.prod-images.emergentagent.com/jobs/e9072c74-fc26-471b-a77d-75c50e9c05f3/images/cf2ce7fb49b80e3aec87a114c11e99aefc062e3a008efc6ac4e330ad51444edf.png",
+        "description": "Subtle abstract frosted glass background in purple",
+        "placement": "Welcome screen background (with light overlay)"
+      },
+      "admin_login_bg": {
+        "url": "https://static.prod-images.emergentagent.com/jobs/e9072c74-fc26-471b-a77d-75c50e9c05f3/images/cdef9b5d2ce43dbed006c7831b1c62a63d7c1dc375304e9fbbdd61b028b4f93f.png",
+        "description": "Deep obsidian background with subtle purple light bleed",
+        "placement": "Admin /admin/login background"
+      },
+      "candidate_exam_focus": {
+        "url": "https://images.pexels.com/photos/31115182/pexels-photo-31115182.jpeg",
+        "description": "Student answering a test",
+        "placement": "Candidate Welcome Screen visual accent or side image"
+      }
+    }
+  },
+  "instructions_to_main_agent": [
+    "Build standard React+Vite or Next.js app with Tailwind CSS.",
+    "Do NOT ask for clarification. Implement everything based on these guidelines.",
+    "Create the specific portals under separate route structures (e.g., / for candidate, /admin for admin).",
+    "Candidate portal must strictly adhere to the Light theme colors.",
+    "Admin portal must strictly adhere to the Dark theme colors.",
+    "Implement the circular countdown timer accurately with the specified color transitions.",
+    "Ensure all data-testids are present.",
+    "Import Work Sans, IBM Plex Sans, and JetBrains Mono from Google Fonts in index.css.",
+    "Do NOT use placeholder text or dummy images. Use the provided media URLs."
+  ]
+}
